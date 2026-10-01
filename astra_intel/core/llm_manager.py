@@ -85,7 +85,7 @@ class LLMClient:
     def _resolve_cloud(self, forced: Optional[CloudProvider] = None) -> None:
         """Pick the first available cloud provider based on env keys."""
         candidates = [
-            (CloudProvider.GROQ, "GROQ_API_KEY", os.getenv("GROQ_MODEL", "llama-3.1-70b-versatile")),
+            (CloudProvider.GROQ, "GROQ_API_KEY", os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")),
             (CloudProvider.GEMINI, "GOOGLE_API_KEY", os.getenv("GEMINI_MODEL", "gemini-2.0-flash")),
             (CloudProvider.OPENAI, "OPENAI_API_KEY", os.getenv("OPENAI_MODEL", "gpt-4o-mini")),
         ]
