@@ -1,12 +1,19 @@
-# Byte-compiled / optimized / DLL files
+# ==============================================================================
+# ASTRA INTEL — .gitignore
+# Battle-tested for Python + Streamlit + ChromaDB + Sentence Transformers
+# Ensures ZERO committed API keys, tokens, or secrets (Section 8.1 compliant)
+# ==============================================================================
+
+# ── Python Byte-compiled / Optimized ─────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
 
-# C extensions
+# ── C Extensions ─────────────────────────────────────────────────────────────
 *.so
 
-# Distribution / packaging
+# ── Distribution / Packaging ─────────────────────────────────────────────────
 .Python
 build/
 develop-eggs/
@@ -24,32 +31,97 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Virtual Environments
+# ── Virtual Environments ─────────────────────────────────────────────────────
 venv/
 env/
 ENV/
 .venv/
+.env.bak
+.virtualenv/
+pip-selfcheck.json
 
-# Environment Variables
+# ── Environment Variables / Secrets (CRITICAL — Section 8.1) ─────────────────
+# NEVER commit API keys, tokens, or credentials
 .env
-*.env.local
+.env.local
+.env.production
+.env.staging
+*.env
+!.env.example
+secrets.yml
+secrets.yaml
+credentials.json
+service-account*.json
 
-# ChromaDB & Vector Store data / cache
-*.chroma/
+# ── ChromaDB / Vector Store Data ─────────────────────────────────────────────
 chroma_db/
 .chroma/
+*.chroma/
+chroma_data/
+chromadb_data/
+*.sqlite3
+*.sqlite
 
-# HuggingFace & model caches
+# ── HuggingFace / Model Caches ──────────────────────────────────────────────
 .cache/
 huggingface/
+*.onnx
+*.bin
+*.safetensors
+sentence-transformers/
 
-# IDE / Editor files
+# ── Streamlit ────────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── Pytest / Testing ─────────────────────────────────────────────────────────
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+.nox/
+
+# ── IDE / Editor Files ───────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
-.DS_Store
+*.swn
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.spyderproject
+.spyproject
 
-# OS generated files
+# ── OS Generated Files ──────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
+
+# ── Jupyter Notebooks (if any) ──────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+
+# ── Uploaded Test PDFs (don't commit user data) ──────────────────────────────
+uploads/
+test_data/
+*.pdf
+!docs/*.pdf
